@@ -101,12 +101,17 @@ If not it creates it.  If the item does exist, it updates a counter for that ite
 You can run the program a few times
 to see what it does, via the command: node mongowriter.js .  Each of the asynchronous
 calls returns a promise, and in each case the promise eventually resolves to the
-value of an entry in the database.  There is a chain of callbacks, from
+value of an entry in the database.  Note the try ... catch surrounding the await
+statements in createItemWithAwait, and the catch statement at the end of the
+chain of then statements in createItemWithThen.  Errors can occur when you
+make an asynchronous call, and you have to have error handling.
+
+There is a chain of callbacks, from the first call to
 createItemWithThen, to createItem2, to closeDb.  You need that chain so that
 things happen in order -- in particular, so both items are created before
-the database is closed.  Your assignment is to add to that callback chain,
+the database connection is closed.  Your assignment is to add to that callback chain,
 to create or update an item for another fruit.  You would call one of 
-the existing functions, createItemWithThen or createItemWIthAwait, to
+the existing functions, createItemWithThen or createItemWithAwait, to
 create/update the item.  Your function would have to occur before closeDb in the
 callback chain.
 
