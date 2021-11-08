@@ -45,13 +45,13 @@ Create a file called .env in your working directory.  It should have one line,
 
 ```
 MONGODB_URL=<your database connection string>
-
+```
 Where this is the database connection string you got in the previous step.
 
 Now do npm install.  This will install the npm packages you need to run the assignment.
 
 Now, do node mongowriter.js.  This will run an application that actually reads and writes
-to your database.  If it shows errors, that means you do not have the sorrect connection string
+to your database.  If it shows errors, that means you do not have the correct connection string
 in the .env file.
 
 If it does work, congratulations, you are on MongoDB!
